@@ -44,3 +44,14 @@ class User(AbstractBaseUser,PermissionsMixin):
     objects = UserManager()
 
 
+
+class Order(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE,related_name='orders')
+    number_of_cup=models.IntegerField(default=1)
+    user_location = models.CharField(max_length=200)
+    created=models.DateTimeField(auto_now_add=True)
+    updated=models.DateTimeField(auto_now=True)
+
+
+
+

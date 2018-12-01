@@ -1,4 +1,4 @@
-from .models import User
+from .models import User,Order
 from rest_framework import serializers
 from rest_framework.authtoken.models import Token
 
@@ -22,4 +22,11 @@ class LoginSerializer(serializers.ModelSerializer):
     class Meta:
         model=User
         fields=('email','password')
+
+
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model=Order
+        fields='__all__'
+
 
